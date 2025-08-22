@@ -81,4 +81,4 @@ bootstrapweb5/
 - รองรับการ deploy บน Vercel ด้วยไฟล์ `vercel.json`
 
 ## 📄 License
-MIT
+
