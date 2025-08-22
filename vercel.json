@@ -2,12 +2,12 @@
     "version": 2,
     "builds": [
         {
-            "src": "bootstrapweb5/wsgi.py",
+            "src": "bootstrapwed5/wsgi.py",
             "use": "@vercel/python"
         },
         {
             "src": "build_files.sh",
-            "use": "@vercel/statics-build",
+            "use": "@vercel/static-build",
             "config": {
                 "distDir": "staticfiles_build"
             }
@@ -15,12 +15,12 @@
     ],
     "routes": [
         {
-            "src": "/statics/(.*)",
-            "dest": "/statics/$1"
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
         },
         {
             "src": "/(.*)",
-            "dest": "bootstrapweb5/wsgi.py"
+            "dest": "bootstrapwed5/wsgi.py"
         }
     ]
 }
