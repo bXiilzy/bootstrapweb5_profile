@@ -1,28 +1,50 @@
-{% extends 'base.html' %}
-{% block title %}สูตรคูณ | Bxilzyyy webapp{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}แม่สูตรคูณ - VASINEE webapp{% endblock %}
+
 {% block content %}
-<div class="card shadow-lg border-0 p-4 mx-auto mt-5 mb-5" style="max-width:700px;background:linear-gradient(90deg,#e3f2fd,#fff);">
-  <h1 class="h3 text-primary mb-3"><i class="bi bi-table me-2"></i>ตารางสูตรคูณ</h1>
-  <p class="lead text-secondary">แสดงตารางสูตรคูณ 1-12 ในรูปแบบสวยงาม</p>
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped align-middle">
-      <thead class="table-primary">
-        <tr>
-          <th>สูตรคูณ</th>
-          {% for i in range(1, 13) %}<th>{{ i }}</th>{% endfor %}
-        </tr>
-      </thead>
-      <tbody>
-        {% for j in range(1, 13) %}
-        <tr>
-          <th class="table-primary">{{ j }}</th>
-          {% for i in range(1, 13) %}
-          <td>{{ i * j }}</td>
-          {% endfor %}
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<div class="container">
+  <div class="card mb-4 p-4 shadow">
+    <form method="post" action="{% url 'table' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="numberInput" class="form-label fw-semibold" style="color:var(--pink-dark)">ป้อนตัวเลขที่ต้องการดูสูตรคูณ</label>
+        <input type="number" class="form-control" id="numberInput" name="number" min="1" required />
+      </div>
+      <button type="submit" class="btn btn-primary px-4">แสดงสูตรคูณ</button>
+    </form>
+  </div>
+
+  <div class="card shadow">
+    <div class="card-header bg-pink text-white">
+      <h2 class="mb-0" style="color:white">{{ message }}</h2>
+    </div>
+    <div class="card-body">
+      {% if table %}
+        <div class="table-responsive">
+          <table class="table table-hover table-striped align-middle">
+            <thead class="bg-pink text-white">
+              <tr>
+                <th scope="col">แม่สูตรคูณ</th>
+                <th scope="col">ตัวคูณ</th>
+                <th scope="col">ผลลัพธ์</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i, result in table %}
+              <tr>
+                <td>{{ number }}</td>
+                <td>{{ i }}</td>
+                <td>{{ result }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-muted">กรุณาป้อนตัวเลข แล้วกดแสดงสูตรคูณ</p>
+      {% endif %}
+    </div>
   </div>
 </div>
-{% endblock %}
+{% endblock content %}
