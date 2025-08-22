@@ -1,0 +1,344 @@
+{% extends 'base.html' %}
+{% block title %}หน้าแรก | Bxilzyyy webapp{% endblock %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bell - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .main-container {
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .welcome-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .welcome-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .welcome-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-item {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.02);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .skill-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .code-display {
+            background: #2d3748;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .code-line {
+            color: #e2e8f0;
+            margin-bottom: 5px;
+        }
+
+        .keyword { color: #ff6b6b; }
+        .function { color: #4ecdc4; }
+        .string { color: #96ceb4; }
+        .method { color: #45b7d1; }
+
+        .web-icons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .web-icons i {
+            font-size: 3rem;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .web-icons .fa-html5 { color: #e34f26; }
+        .web-icons .fa-css3-alt { color: #1572b6; }
+        .web-icons .fa-js-square { color: #f7df1e; }
+        .web-icons .fa-react { color: #61dafb; }
+
+        .web-icons i:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .profile-card,
+            .info-card {
+                padding: 20px;
+            }
+            
+            .welcome-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">
+                    <i class="fas fa-bolt me-3"></i>WELCOME TO BXILZYYY
+                </h1>
+                <p class="welcome-subtitle">see you</p>
+            </div>
+
+            <!-- Profile Section -->
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="profile-card d-flex flex-column flex-md-row align-items-center justify-content-between p-4" style="gap: 2rem;">
+                        <div class="d-flex flex-column align-items-center" style="gap: 1rem;">
+                            <div class="profile-image" style="width:140px;height:140px;overflow:hidden;">
+                                <img src="{% static 'assets/img/bxilzyy08.jpg' %}" class="img-fluid rounded-circle shadow" style="width:100%;height:100%;object-fit:cover;">
+                            </div>
+                            <div class="profile-image" style="width:140px;height:140px;overflow:hidden;">
+                                <img src="{% static 'assets/img/activity50.jpg' %}" class="img-fluid rounded-circle shadow" style="width:100%;height:100%;object-fit:cover;">
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 ms-md-4">
+                            <h2 class="text-center text-md-start mb-4 text-primary" style="font-weight:700;letter-spacing:1px;"><i class="fas fa-user-astronaut me-2"></i>ข้อมูลส่วนตัว</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="contact-item d-flex align-items-center gap-3">
+                                        <i class="fas fa-id-card text-primary fa-2x"></i>
+                                        <div>
+                                            <strong style="font-size:1.2rem;">นางสาวจีรนันท์ เกิดกล้า</strong><br>
+                                            <span class="text-muted">นักศึกษาวิทยาการคอมพิวเตอร์</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-item d-flex align-items-center gap-3">
+                                        <i class="fas fa-smile-beam text-warning fa-2x"></i>
+                                        <div>
+                                            <strong style="font-size:1.2rem;">เบลล์</strong><br>
+                                            <span class="text-muted">"6712732121"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Cards -->
+            <div class="row">
+                <!-- Education Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <h3 class="section-title">
+                            <i class="fas fa-university me-2"></i>การศึกษา
+                        </h3>
+                        <div class="mb-3">
+                            <h5 class="text-primary">สาขาวิทยาการคอมพิวเตอร์</h5>
+                            <p class="text-muted mb-2">คณะศิลปศาสตร์และวิทยาศาสตร์</p>
+                            <p>ศึกษาเกี่ยวกับการพัฒนาซอฟต์แวร์ อัลกอริทึม โครงสร้างข้อมูล และเทคโนโลยีคอมพิวเตอร์สมัยใหม่</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <h3 class="section-title">
+                            <i class="fas fa-code me-2"></i>ทักษะ
+                        </h3>
+                        <div class="mb-3">
+                            <span class="skill-badge">
+                                <i class="fas fa-laptop-code me-1"></i>เขียน Code
+                            </span>
+                            <span class="skill-badge">
+                                <i class="fas fa-globe me-1"></i>พัฒนาเว็บไซต์
+                            </span>
+                            <span class="skill-badge">
+                                <i class="fab fa-html5 me-1"></i>HTML/CSS
+                            </span>
+                            <span class="skill-badge">
+                                <i class="fab fa-js-square me-1"></i>JavaScript
+                            </span>
+                            <span class="skill-badge">
+                                <i class="fas fa-database me-1"></i>Database
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coding Interests -->
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <h3 class="section-title">
+                            <i class="fas fa-terminal me-2"></i>การเขียนโปรแกรม
+                        </h3>
+                        <div class="code-display">
+                            <div class="code-line">
+                                <span class="keyword">function</span> 
+                                <span class="function">createWebsite</span>() {
+                            </div>
+                            <div class="code-line">
+                                &nbsp;&nbsp;<span class="method">console.log</span>(<span class="string">"Building amazing web apps!"</span>);
+                            </div>
+                            <div class="code-line">
+                                &nbsp;&nbsp;<span class="keyword">return</span> <span class="string">"success"</span>;
+                            </div>
+                            <div class="code-line">}</div>
+                        </div>
+                        <p>หลงใหลในการเขียนโค้ดและสร้างโซลูชันที่สร้างสรรค์เพื่อแก้ปัญหาต่างๆ</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <h3 class="section-title">
+                            <i class="fas fa-paint-brush me-2"></i>การพัฒนาเว็บไซต์
+                        </h3>
+                        <div class="web-icons">
+                            <i class="fab fa-html5"></i>
+                            <i class="fab fa-css3-alt"></i>
+                            <i class="fab fa-js-square"></i>
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <p>สร้างเว็บไซต์ที่สวยงาม ใช้งานง่าย และตอบสนองต่อผู้ใช้งานได้อย่างมีประสิทธิภาพ</p>
+                    </div>
+                </div>
+            </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock %}

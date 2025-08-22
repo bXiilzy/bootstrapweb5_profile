@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}วนซ้ำ | Bxilzyyy webapp{% endblock %}
+{% block content %}
+<div class="card shadow-lg border-0 p-4 mx-auto mt-5 mb-5" style="max-width:700px;background:linear-gradient(90deg,#e3f2fd,#fff);">
+  <h1 class="h3 text-primary mb-3"><i class="bi bi-code-slash me-2"></i>ตัวอย่างการวนซ้ำ</h1>
+  <p class="lead text-secondary">แสดงตัวอย่างการใช้ for loop ในภาษา Python</p>
+  <div class="bg-light rounded p-3 mb-3">
+    <pre class="mb-0 text-primary">{% for i in range(1, 11) %}รอบที่ {{ i }}
+{% endfor %}</pre>
+  </div>
+  <p class="mb-0 text-muted">สามารถนำไปประยุกต์ใช้กับการวนซ้ำในงานต่างๆ ได้</p>
+</div>
+{% endblock %}
