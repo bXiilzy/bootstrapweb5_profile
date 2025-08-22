@@ -1,0 +1,45 @@
+# ระบบปฏิบัติการ
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Environment
+.env
+.venv/
+env/
+venv/
+
+# Build / Dist
+dist/
+build/
+*.egg-info/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
+debug.log
+
+# Coverage / Test
+coverage/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
