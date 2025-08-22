@@ -7,7 +7,7 @@
         },
         {
             "src": "build_files.sh",
-            "use": "@vercel/static-build",
+            "use": "@vercel/statics-build",
             "config": {
                 "distDir": "staticfiles_build"
             }
@@ -15,8 +15,8 @@
     ],
     "routes": [
         {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
+            "src": "/statics/(.*)",
+            "dest": "/statics/$1"
         },
         {
             "src": "/(.*)",
