@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "My_profile/wsgi.py",
+            "src": "bootstrapweb5/wsgi.py",
             "use": "@vercel/python"
         },
         {
@@ -20,7 +20,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "My_profile/wsgi.py"
+            "dest": "bootstrapweb5/wsgi.py"
         }
     ]
 }
