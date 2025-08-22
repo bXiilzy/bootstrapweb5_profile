@@ -1,23 +1,176 @@
 {% extends 'base.html' %}
 {% block title %}ติดต่อเรา | Bxilzyyy webapp{% endblock %}
+{% load static %}
 {% block content %}
-<div class="card shadow-lg border-0 p-4 mx-auto mt-5 mb-5" style="max-width:700px;background:linear-gradient(90deg,#e3f2fd,#fff);">
-  <h1 class="h3 text-primary mb-3"><i class="bi bi-envelope-paper me-2"></i>ติดต่อเรา</h1>
-  <p class="lead text-secondary">หากมีข้อสงสัยหรือข้อเสนอแนะ สามารถติดต่อทีมงานได้ผ่านแบบฟอร์มด้านล่าง</p>
-  <form>
-    <div class="mb-3">
-      <label for="name" class="form-label">ชื่อของคุณ</label>
-      <input type="text" class="form-control" id="name" placeholder="กรอกชื่อ...">
+
+<style>
+  body {
+    font-family: 'Kanit', sans-serif;
+    background: linear-gradient(135deg, hsl(229, 76%, 66%) 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+  }
+  .hero-contact {
+    background: rgba(255,255,255,0.95);
+    color: rgb(0, 89, 134);
+    padding: 60px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+    box-shadow: 0 10px 30px rgba(59, 112, 218, 0.15);
+  }
+  .hero-contact h1 {
+    font-weight: 700;
+    font-size: 3rem;
+  }
+  .hero-contact p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    margin-block: 30px;
+    position: relative;
+    z-index: 2;
+  }
+  .contact-form h2 {
+    font-weight: 600;
+    margin-bottom: 25px;
+  }
+  .form-control, .form-select {
+    border-radius: 12px;
+    border: 1.5px solid #e0e0e0;
+    transition: all 0.3s ease;
+  }
+  .form-control:focus, .form-select:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 0 0.25rem rgba(106,17,203,.15);
+  }
+  .btn-primary {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37,117,252,0.3);
+  }
+
+  /* Social Cards */
+  .contact-info-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-top: 30px;
+  }
+  .social-links a {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+    font-size: 1.4rem;
+  }
+  .social-links a:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  }
+</style>
+
+<!-- Hero Section -->
+<section class="hero-contact text-center">
+  <div class="container">
+    <h1 class="fw-bold mb-3">ติดต่อเรา</h1>
+    <p class="lead mb-0">พร้อมให้คำปรึกษาและช่วยเหลือคุณตลอด 24 ชั่วโมง</p>
+  </div>
+</section>
+
+<!-- Contact Form & Info -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="contact-form">
+        <h2 class="h4 text-primary">
+          <i class="bi bi-envelope-paper me-2"></i>ส่งข้อความถึงเรา
+        </h2>
+        <form>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName" class="form-label">ชื่อ</label>
+              <input type="text" class="form-control" id="firstName" placeholder="ชื่อของคุณ">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">นามสกุล</label>
+              <input type="text" class="form-control" id="lastName" placeholder="นามสกุลของคุณ">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="email" class="form-label">อีเมล</label>
+              <input type="email" class="form-control" id="email" placeholder="example@email.com">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="phone" class="form-label">เบอร์โทร</label>
+              <input type="tel" class="form-control" id="phone" placeholder="08x-xxx-xxxx">
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="subject" class="form-label">หัวข้อ</label>
+            <select class="form-select" id="subject">
+              <option value="">เลือกหัวข้อ</option>
+              <option value="general">สอบถามทั่วไป</option>
+              <option value="support">ขอความช่วยเหลือ</option>
+              <option value="project">ปรึกษาโปรเจ็กต์</option>
+              <option value="other">อื่นๆ</option>
+            </select>
+          </div>
+          
+          <div class="mb-4">
+            <label for="message" class="form-label">ข้อความ</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="พิมพ์ข้อความของคุณที่นี่..."></textarea>
+          </div>
+          
+          <div class="d-grid d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-send me-2"></i>ส่งข้อความ
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">อีเมล</label>
-      <input type="email" class="form-control" id="email" placeholder="example@email.com">
+  </div>
+
+  <!-- Social Media -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="contact-info-card text-center">
+        <h5 class="text-primary mb-4">ติดตามเรา</h5>
+        <div class="social-links">
+          <a href="https://www.facebook.com/share/1C9UNbtMzc/?mibextid=LQQJ4d" style="background: linear-gradient(45deg, #f3f8ff, #9ac6eb);"><i class="bi bi-facebook"></i></a>
+          <a href="1bxil__" style="background: linear-gradient(45deg, #ffffff, #42a5f5);"><i class="bi bi-line"></i></a>
+          <a href="https://www.instagram.com/1bxil__?igsh=MWYwcHJzNXVzcWZ1Yg%3D%3D&utm_source=qr" style="background: linear-gradient(45deg, #f0e2e5, #9cfdfd);"><i class="bi bi-instagram"></i></a>
+          <a href="https://github.com/bXiilzy" style="background: linear-gradient(45deg, #e1fdfd, #42a5f5);"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="message" class="form-label">ข้อความ</label>
-      <textarea class="form-control" id="message" rows="4" placeholder="พิมพ์ข้อความ..."></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary px-4">ส่งข้อความ</button>
-  </form>
+  </div>
 </div>
+
 {% endblock %}
