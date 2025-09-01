@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}นักเรียน | Bxilzyyy webapp{% endblock %}
+{% load static %}
+{% block content %}
+
+<style>
+  body {
+    font-family: 'Kanit', sans-serif;
+    background: linear-gradient(135deg, #4391e6 0%, #8e55cf 100%);
+    min-height: 100vh;
+    color: #333;
+  }
+</style>
+<div class="container">
+  <div class="card mb-4 p-4 shadow">
+    <form method="post" action="{% url 'students' %}">
+      
+  <div class="card shadow">
+    <div class="card-header bg-pink text-white">
+      <h2 class="mb-0" style="color:white">{{ message }}</h2>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle">
+          <thead class="bg-pink text-white">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in count %}
+            <tr>
+              <th scope="row">{{ forloop.counter }}</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+{% endblock %}

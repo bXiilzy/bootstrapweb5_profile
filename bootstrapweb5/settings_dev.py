@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'webpage',  # Ensure your app is listed here
 ]
 
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'bootstrapweb5.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -122,7 +122,6 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [Path.joinpath(BASE_DIR, "statics")]
 STATIC_ROOT = Path.joinpath(BASE_DIR, "staticfiles_build", "static")
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

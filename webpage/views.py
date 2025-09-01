@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from . import models
 # Create your views here.
 
 def index(request):
@@ -37,3 +37,19 @@ def table_view(request):
         context['number'] = None
         
     return render(request, 'table.html', context)
+
+def students_view(request):
+    from .models import Students
+    context = {}
+    context['title'] = "รายชื่อนักเรียน"
+    
+    strdents = Students.objects.all()
+    context['students'] = strdents
+    return render(request, 'students.html', context)
+
+
+def subjects(request):
+    from .models import Subjects
+    subjects_list = Subjects.objects.all()
+    return render(request, 'subjects.html', {'subjects': subjects_list})
+

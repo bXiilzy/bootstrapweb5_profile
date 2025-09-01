@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>รายวิชา</h2>
+<table border="1" class="table">
+    <thead>
+        <tr>
+            <th>รหัสวิชา</th>
+            <th>ชื่อวิชา</th>
+            <th>ชื่อผู้สอน</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subject in subjects %}
+        <tr>
+            <td>{{ subject.subject_code }}</td>
+            <td>{{ subject.subject_name }}</td>
+            <td>{{ subject.teacher_name }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">ไม่มีข้อมูลวิชา</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
