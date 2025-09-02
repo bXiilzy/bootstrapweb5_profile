@@ -50,6 +50,10 @@ def students_view(request):
 
 def subjects(request):
     from .models import Subjects
+    context = {}
+    context['title'] = "รายวิชา"
+    
     subjects_list = Subjects.objects.all()
-    return render(request, 'subjects.html', {'subjects': subjects_list})
+    context['subjects'] = subjects
+    return render(request, 'subjects.html', context)
 
