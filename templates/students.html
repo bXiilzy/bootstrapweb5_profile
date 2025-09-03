@@ -32,14 +32,16 @@
             </tr>
           </thead>
           <tbody>
-            {% for i in count %}
-            <tr>
-              <th scope="row">{{ forloop.counter }}</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+             {% for student in students %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ student.stid }}</td>
+        <td>{{ student.first_name }}</td>
+        <td>{{ student.last_name }}</td>
+        <td>{{ student.age }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}

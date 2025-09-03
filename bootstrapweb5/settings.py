@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,12 +81,19 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres.zixmsgrgqrkjdfqkgmsm',
+        'USER': 'postgres',
         'PASSWORD': os.environ.get('SUPABASE_DB_PASSWORD', 'b010105JK'),
-        'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com',
+        'HOST': 'db.rjdwquypgefowuototpy.supabase.co',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": "mydatabase",
+#     }
+# }
 
 
 # Password validation
@@ -122,10 +130,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [Path.joinpath(BASE_DIR, "statics")]
-STATIC_ROOT = Path.joinpath(BASE_DIR, "staticfiles_build", "static")
-
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'statics')]
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

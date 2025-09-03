@@ -31,14 +31,15 @@
             </tr>
           </thead>
           <tbody>
-            {% for subjects in count %}
-            <tr>
-              <th scope="row">{{ forloop.counter }}</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+            {% for subject in subjects %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ subject.sjid }}</td>
+        <td>{{ subject.subjects_name }}</td>
+        <td>{{ subject.teacher_name }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
