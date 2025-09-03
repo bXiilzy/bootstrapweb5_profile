@@ -34,9 +34,9 @@
             {% for subject in subjects %}
       <tr>
         <th scope="row">{{ forloop.counter }}</th>
-        <td>{{ subject.sjid }}</td>
-        <td>{{ subject.subjects_name }}</td>
-        <td>{{ subject.teacher_name }}</td>
+  <td>{{ subject.subject_code }}</td>
+  <td>{{ subject.subject_name }}</td>
+  <td>{{ subject.teacher_name }}</td>
       </tr>
       {% endfor %}
     </tbody>

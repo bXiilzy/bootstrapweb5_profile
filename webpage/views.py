@@ -52,8 +52,7 @@ def subjects(request):
     from .models import Subjects
     context = {}
     context['title'] = "รายวิชา"
-    
     subjects_list = Subjects.objects.all()
-    context['subjects'] = subjects
+    context['subjects'] = subjects_list
     return render(request, 'subjects.html', context)
 
