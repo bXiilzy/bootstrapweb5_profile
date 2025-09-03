@@ -8,7 +8,7 @@ RREFIX_CHOICES = [
 ]
 
 class Students(models.Model):
-    stid = models.IntegerField(unique=True)
+    stid = models.CharField(unique=True)
     name_prefix = models.CharField(choices=RREFIX_CHOICES, max_length=10)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -24,4 +24,4 @@ class Subjects(models.Model):
     teacher_name = models.CharField(max_length=100, verbose_name="ชื่อผู้สอน")
 
     def __str__(self):
-        return f"{self.subject_code} - {self.subject_name}"
+        return str(self.subject_code)
